@@ -1,0 +1,48 @@
+git pull 命令用于从远程获取代码并合并本地的版本。
+命令格式如下：
+	git pull <远程主机名> <远程分支名>:<本地分支名>
+例：
+	git pull origin
+origin：远程主机别名
+
+
+git remote 命令用于在远程仓库的操作。
+
+显示所有远程仓库：
+	git remote -v
+origin  https://github.com/0601why/whydata (fetch)
+origin  https://github.com/0601why/whydata (push)
+origin：为远程主机别名
+https://github.com/0601why/whydata：远程主机名
+
+显示某个远程仓库的信息：
+	git remote show [remote]
+[remote]：远程仓库网址
+例：
+	git remote show https://github.com/0601why/whydata
+
+添加远程版本库：
+	git remote add [shortname] [url]
+[shortname]：为远程仓库取的别名
+[url]：git@github.com:远程仓库用户名/远程仓库名.git
+例：
+	git remote add origin git@github.com:0601why/whydata.git
+
+git remote rm name  # 删除远程仓库
+git remote rename old_name new_name  # 修改仓库名
+
+
+git push 命令用于从将本地的分支版本上传到远程并合并。
+命令格式如下：
+	git push <远程主机名> <本地分支名>:<远程分支名>
+如果本地分支名与远程分支名相同，则可以省略冒号：
+	git push <远程主机名> <本地分支名>
+实例:以下命令将本地的 master 分支推送到 origin 主机的 master 分支。
+	git push origin master
+相等于：
+	git push origin master:master
+如果本地版本与远程版本有差异，但又要强制推送可以使用 --force 参数：
+	git push --force origin master
+删除主机的分支可以使用 --delete 参数，以下命令表示删除 origin 主机的 master 分支：
+	git push origin --delete master
+	
